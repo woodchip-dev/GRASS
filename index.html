@@ -16,7 +16,7 @@
         <div class="large-12 cell">
           <div class="input-group plus-minus-input" style="margin-bottom: 0;">
             <div class="input-group-button loginout">
-              <button type="button" class="button square" data-quantity="enter" data-field="login">
+              <button type="button" class="button square" data-quantity="enter" data-field="login" onclick="on_attempt_login()">
                 <b class="fa fa-key" style="text-align: center;"></b>
               </button>
             </div>
@@ -211,6 +211,23 @@
     </div>
     <div id="bad-bid" onclick="off_bad_bid()">
       <div id="text">VERBOTEN</div>
+    </div>
+    <div id="i-am-root">
+      <div id="text">
+
+        <label>Input Password
+          <div class="input-group iz-input">
+            <input type="password" placeholder="Password" required pattern="[a-zA-Z0-9]" maxlength="32" name="password" value="" style="margin-bottom: 0.05rem;"/>
+            <div class="dispBids">
+              <button class="input-group-button small button" name="displayBids" type="submit" id="drBid">LOGIN</button>
+            </div>
+          </div>
+          <div style="margin-top: -1rem;">
+            <small class="error">Admin interface is for view by Prime Minister only. <b class="go-back" onclick="off_attempt_login()">Back.</b></small>
+          </div>
+        </label>
+
+      </div>
     </div>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>

@@ -31,3 +31,15 @@ function on_bad_bid() {
 function off_bad_bid() {
     document.getElementById("bad-bid").style.display = "none";
 }
+
+function on_attempt_login() {
+    document.getElementById("i-am-root").style.display = "block";
+}
+
+function off_attempt_login() {
+    document.getElementById("i-am-root").style.display = "none";
+}
+
+function attempt_logout() {
+    // return to main page, end session somehow
+}
