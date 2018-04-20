@@ -54,6 +54,19 @@
     margin-left: -0.20rem;
 }
 
+.input-group-button .square .fa-key:before {
+    margin-left: -0.25rem;
+}
+
+.input-group-button .square .fa-lock:before {
+    margin-left: -0.20rem;
+}
+
+.loginout {
+    margin-left: auto;
+    margin-right: 0;
+}
+
 /*#mod-button {
     margin-left: 0.75rem;
 }*/
