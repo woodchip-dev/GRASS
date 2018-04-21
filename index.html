@@ -32,7 +32,8 @@
       <div class="grid-x grid-padding-x" data-equalizer="3col">
         <div class="large-4 medium-4 cell">
           <div class="primary callout"data-equalizer-watch="3col">
-            <form data-abide>
+
+            <form data-abide name="create_bid">
               <div class="grid-x grid-padding-x">
                 <div class="large-12 medium-12 cell">
                   <div style="text-align: center;">
@@ -64,13 +65,13 @@
                     <!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
                     <div class="input-group plus-minus-input">
                       <div class="input-group-button">
-                        <button type="button" class="button square" data-quantity="minus" data-field="numRoots">
+                        <button type="button" class="button square" data-quantity="minus" data-field="num-roots">
                           <b class="fa fa-minus" style="text-align: center;"></b>
                         </button>
                       </div>
-                      <input class="input-group-field" type="number" name="numRoots" value="0">
+                      <input class="input-group-field" type="number" name="num-roots" value="0" min="1" max="100" required>
                       <div class="input-group-button">
-                        <button type="button" class="button square" data-quantity="plus" data-field="numRoots">
+                        <button type="button" class="button square" data-quantity="plus" data-field="num-roots">
                           <b class="fa fa-plus"></b>
                         </button>
                       </div>
@@ -87,13 +88,13 @@
                     <!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
                     <div class="input-group plus-minus-input">
                       <div class="input-group-button">
-                        <button type="button" class="button square" data-quantity="minus" data-field="bid">
+                        <button type="button" class="button square" data-quantity="minus" data-field="bid-amt">
                           <b class="fa fa-minus"></b>
                         </button>
                       </div>
-                      <input class="input-group-field" type="number" name="bid" value="0">
+                      <input class="input-group-field" type="number" name="bid-amt" value="0" min="1" max="100" required>
                       <div class="input-group-button">
-                        <button type="button" class="button square" data-quantity="plus" data-field="bid">
+                        <button type="button" class="button square" data-quantity="plus" data-field="bid-amt">
                           <b class="fa fa-plus"></b>
                         </button>
                       </div>
@@ -107,7 +108,7 @@
                 <div class="large-12 medium-12 cell">
                   <div class="button-group">
                     <b  style="margin: 0 auto; margin-bottom: -1rem;">
-                      <button class="small button" name="createBid" type="submit" onclick="make_bid()">BID NOW</button>
+                      <button class="small button" name="createBid" type="button" onclick="make_bid()">BID NOW</button>
                     </b>
                   </div>
                 </div>
@@ -126,13 +127,13 @@
             </div>
             <div class="grid-x grid-padding-x">
                 <div class="large-12 medium-12 cell">
-                  <form data-abide>
+                  <form data-abide name="iz-man">
                           
                     <label>Input IZ Number
                       <div class="input-group iz-input">
                         <input class="input-group-field" type="text" placeholder="IZ Number" required pattern="[0-9]{6}" maxlength="6" name="iz-number" style="margin-bottom: 0.05rem;" />
                         <div class="modButton">
-                          <button class="input-group-button small button" name="displayBids" type="submit" id="modFont" onclick="show_bids()">SHOW BID LOG</button>
+                          <button class="input-group-button small button" name="displayBids" type="button" id="modFont" onclick="show_bids()">SHOW BID LOG</button>
                         </div>
                         <div class="modButton">
                           <button class="input-group-button small button" name="resetView" type="reset" id="modFont" onclick="reset_view()">RESET VIEW</button>
@@ -216,22 +217,27 @@
       </div>
     </div>
     <div id="bad-bid" onclick="off_bad_bid()">
-      <div id="text">VERBOTEN</div>
+      <div id="textb">VERBOTEN</div>
+    </div>
+    <div id="good-bid" onclick="off_good_bid()">
+      <div id="textg">BID SUCCESS</div>
     </div>
     <div id="i-am-root">
-      <div id="text">
+      <div id="textb">
 
-        <label>Input Password
-          <div class="input-group iz-input">
-            <input type="password" placeholder="Password" required pattern="[a-zA-Z0-9]" maxlength="32" name="password" value="" style="margin-bottom: 0.05rem;"/>
-            <div class="modButton">
-              <button class="input-group-button small button" name="displayBids" type="submit" id="modFont">LOGIN</button>
+        <form data-abide name="pass">
+          <label>Input Password
+            <div class="input-group iz-input">
+              <input type="password" placeholder="Password" required pattern="[a-zA-Z0-9]" maxlength="32" name="word" value="" style="margin-bottom: 0.05rem;"/>
+              <div class="modButton">
+                <button class="input-group-button small button" name="disp-bids" type="button" id="modFont" onclick="login()">LOGIN</button>
+              </div>
             </div>
-          </div>
-          <div style="margin-top: -1rem;">
-            <small class="error">Admin interface is for view by Prime Minister only. <b class="go-back" onclick="off_attempt_login()">Back.</b></small>
-          </div>
-        </label>
+            <div style="margin-top: -1rem;">
+              <small class="error">Admin interface is for view by Prime Minister only. <b class="go-back" onclick="off_attempt_login()">Back.</b></small>
+            </div>
+          </label>
+        </form>
 
       </div>
     </div>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" dir="ltr">
+<html class="no-js" lang="en" dir="ltr" onload="show_root_bids()">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -32,14 +32,14 @@
       <div class="grid-x grid-padding-x" data-equalizer="3col">
         <div class="large-4 medium-4 cell">
           <div class="primary callout"data-equalizer-watch="3col">
-            <form data-abide>
+            <form data-abide name="updater">
               <div class="grid-x grid-padding-x">
                 <div class="large-12 medium-12 cell">
                   <div style="text-align: center;">
                       <h4>Root Management</h4>
                   </div>
                   <label><h6>Add Root</h6>
-                    <input type="text" placeholder="Root Name" pattern="(\b([A-Z]{1}([a-z]*)\b) ?)+" name="addRoot" value="" style="margin-bottom: 0.05rem;"/>
+                    <input type="text" placeholder="Root Name" pattern="(\b([A-Z]{1}([a-z]*)\b) ?)+" name="add-root" value="" style="margin-bottom: 0.05rem;"/>
                     <small class="error">First letter of each word must be capitalized.</small>
                   </label>
                 </div>
@@ -48,7 +48,7 @@
               <div class="grid-x grid-padding-x">
                 <div class="large-12 medium-12 cell">
                   <label><h6>Delete Root</h6></label><!-- JS HERE -->
-                  <select type="string" name="deleteRoot">
+                  <select type="string" name="del-root">
                     <option selected></option>
                     <option value="potato">Potato</option>
                     <option value="onion">Onion</option>
@@ -72,7 +72,7 @@
                 <div class="large-12 medium-12 cell">
                   <div class="button-group">
                     <b  style="margin: 0 auto; margin-bottom: -1rem;">
-                      <button class="small button" name="updateRoots" type="submit" onclick="on_bad_bid()">UPDATE</button>
+                      <button class="small button" name="update-roots" type="button" onclick="update_roots()">UPDATE</button>
                     </b>
                   </div>
                 </div>
@@ -91,8 +91,6 @@
             </div>
             <div class="grid-x grid-padding-x">
               <div class="large-12 medium-12 cell">
-                  <!-- JS HERE :: getBids([IZ Number]) -->
-                <!--p>Query the database or JSON file to display bids. View only.</p-->
 
                 <hr class="thin" />
                 <div class="grid-x grid-padding-x">
@@ -120,7 +118,10 @@
       </div>
     </div>
     <div id="bad-bid" onclick="off_bad_bid()">
-      <div id="text">VERBOTEN</div>
+      <div id="textb">VERBOTEN</div>
+    </div>
+    <div id="good-bid" onclick="off_good_bid()">
+      <div id="textg">UPDATE SUCCESS</div>
     </div>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
