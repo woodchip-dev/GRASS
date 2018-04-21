@@ -43,3 +43,34 @@ function off_attempt_login() {
 function attempt_logout() {
     // return to main page, end session somehow
 }
+
+function make_bid() {
+    on_bad_bid();
+    // add bid and iz number (if applicable) to database
+}
+
+function show_bids() {
+    // require IZN, otherwise VERBOTEN
+    on_bad_bid();
+    document.getElementById("dispBala").style.display = "initial";
+    document.getElementById("dispBids").style.display = "initial";
+    // display all bids for a particular IZN
+}
+
+function reset_view() {
+    document.getElementById("dispBala").style.display = "none";
+    document.getElementById("dispBids").style.display = "none";
+    // show no bid info
+}
+
+function change_bid() {
+    // change bid
+}
+
+function delete_bid() {
+    // delete bid
+}
+
+function update_roots() {
+    // add and/or delete root
+}

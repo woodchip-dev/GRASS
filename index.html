@@ -47,8 +47,8 @@
               <br />
               <div class="grid-x grid-padding-x">
                 <div class="large-12 medium-12 cell">
-                  <label>Select Root</label><!-- JS HERE -->
-                  <select type="string" name="root" value="beet">
+                  <label>Select Root</label>
+                  <select type="string" name="root">
                     <option value="potato">Potato</option>
                     <option value="onion">Onion</option>
                     <option value="turnip">Turnip</option>
@@ -107,7 +107,7 @@
                 <div class="large-12 medium-12 cell">
                   <div class="button-group">
                     <b  style="margin: 0 auto; margin-bottom: -1rem;">
-                      <button class="small button" name="createBid" type="submit" onclick="on_bad_bid()">BID NOW</button>
+                      <button class="small button" name="createBid" type="submit" onclick="make_bid()">BID NOW</button>
                     </b>
                   </div>
                 </div>
@@ -131,79 +131,85 @@
                     <label>Input IZ Number
                       <div class="input-group iz-input">
                         <input class="input-group-field" type="text" placeholder="IZ Number" required pattern="[0-9]{6}" maxlength="6" name="iz-number" style="margin-bottom: 0.05rem;" />
-                        <div class="dispBids">
-                          <button class="input-group-button small button" name="displayBids" type="submit" id="drBid">SHOW BID LOG</button>
+                        <div class="modButton">
+                          <button class="input-group-button small button" name="displayBids" type="submit" id="modFont" onclick="show_bids()">SHOW BID LOG</button>
                         </div>
-                        <div class="dispBids">
-                          <button class="input-group-button small button" name="resetView" type="submit" id="drBid">RESET VIEW</button>
+                        <div class="modButton">
+                          <button class="input-group-button small button" name="resetView" type="reset" id="modFont" onclick="reset_view()">RESET VIEW</button>
                         </div>
                       </div>
                       <div style="margin-top: -1rem;">
                         <small class="error">IZ number must be 6 digit.</small>
                       </div>
                     </label>
-                          <!-- JS HERE :: showIZ() -->
+                          
                   </form>
                 </div>
-                <div class="grid-x grid-padding-x" style="margin: 0 auto;">
+                <div class="grid-x grid-padding-x" style="margin: 0 auto;" id="dispBala">
                   <div class="large-12 medium-12 cell">
                     <div style="text-align: center; margin-top: 1.5rem;">
                       <statement>
                         Balance: [
                       </statement>
-                      <statement class="iz-amt">
+                      <statement id="iz-amt">
                         100
                       </statement>
                       <statement>
                         ] Izhk
-                      </statement><!-- JS HERE :: getBalance() -->
+                      </statement>
                   </div>
                 </div>
               </div>
             </div>
             <br />
-            <div class="grid-x grid-padding-x">
-              <div class="large-12 medium-12 cell">
-                <div style="text-align: center;">
-                  <h4 style="font-size: 21px;">Bid History for [IZ Number]</h4> <!-- JS HERE :: getIZ([IZ Number]) -->
+            
+            <div id="dispBids">
+              <div class="grid-x grid-padding-x">
+                <div class="large-12 medium-12 cell">
+                  <div style="text-align: center;">
+                    <h4 style="font-size: 21px;">
+                      Bid History for 
+                      <statement id="izn">
+                        [IZ Number]
+                      </statement>
+                    </h4>
+                  </div>
                 </div>
               </div>
-            </div>
-              <!-- JS HERE :: getBids([IZ Number]) -->
-            <!--p>Query the database or JSON file to display bids. Use JS to give option to change or delete bid here.</p-->
-            <hr class="thin" />
-            <div class="grid-x grid-padding-x">
-              <div class="input-group plus-minus-input" style="margin-bottom: 0;">
-                <div class="large-3 medium-3 small-3 cell gridit" id="bid-data">
-                    <p>[root name]</p>
-                </div>
-                <div class="large-3 medium-3 small-3 cell gridit" id="bid-data">
-                  <p>[root num]</p>
-                </div>
-                <div class="large-3 medium-3 small-3 cell gridit" id="bid-data">
-                  <p>[bid amt]</p>
-                </div>
-                <div class="large-3 medium-3 small-3 cell gridit" id="bid-data">
-                  <div class="grid-x grid-padding-x">
-                    <div class="large-6 medium-6 small-6 cell">
-                      <div class="input-group-button" id="mod-button">
-                        <button type="button" class="button square" data-modification="change" data-field="modBid">
-                          <b class="fa fa-wrench"></b>
-                        </button>
+              <hr class="thin" />
+              <div class="grid-x grid-padding-x">
+                <div class="input-group plus-minus-input" style="margin-bottom: 0;">
+                  <div class="large-3 medium-3 small-3 cell gridit" id="bid-data">
+                      <p>[root name]</p>
+                  </div>
+                  <div class="large-3 medium-3 small-3 cell gridit" id="bid-data">
+                    <p>[root num]</p>
+                  </div>
+                  <div class="large-3 medium-3 small-3 cell gridit" id="bid-data">
+                    <p>[bid amt]</p>
+                  </div>
+                  <div class="large-3 medium-3 small-3 cell gridit" id="bid-data">
+                    <div class="grid-x grid-padding-x">
+                      <div class="large-6 medium-6 small-6 cell">
+                        <div class="input-group-button" id="mod-button">
+                          <button type="button" class="button square" data-modification="change" data-field="modBid" onclick="change_bid()">
+                            <b class="fa fa-wrench"></b>
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                    <div class="large-6 medium-6 small-6 cell">
-                      <div class="input-group-button" id="mod-button">
-                        <button type="button" class="button square" data-modification="delete" data-field="modBid">
-                          <b class="fa fa-times"></b>
-                        </button>
+                      <div class="large-6 medium-6 small-6 cell">
+                        <div class="input-group-button" id="mod-button">
+                          <button type="button" class="button square" data-modification="delete" data-field="modBid" onclick="delete_bid()">
+                            <b class="fa fa-times"></b>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <!--hr class="thin" /-->
             </div>
-            <!--hr class="thin" /-->
 
           </div>
         </div>
@@ -218,8 +224,8 @@
         <label>Input Password
           <div class="input-group iz-input">
             <input type="password" placeholder="Password" required pattern="[a-zA-Z0-9]" maxlength="32" name="password" value="" style="margin-bottom: 0.05rem;"/>
-            <div class="dispBids">
-              <button class="input-group-button small button" name="displayBids" type="submit" id="drBid">LOGIN</button>
+            <div class="modButton">
+              <button class="input-group-button small button" name="displayBids" type="submit" id="modFont">LOGIN</button>
             </div>
           </div>
           <div style="margin-top: -1rem;">
