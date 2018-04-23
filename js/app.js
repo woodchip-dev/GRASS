@@ -7,13 +7,13 @@ jQuery(document).ready(function()
         e.preventDefault();
         fieldName = $(this).attr('data-field');
         var currentVal = parseInt($('input[name='+fieldName+']').val());
-        if (!isNaN(currentVal))
+        if (!isNaN(currentVal) && currentVal >= 1)
         {
             $('input[name='+fieldName+']').val(currentVal + 1);
         }
         else
         {
-            $('input[name='+fieldName+']').val(0);
+            $('input[name='+fieldName+']').val(1);
         }
     });
 
@@ -22,13 +22,13 @@ jQuery(document).ready(function()
         e.preventDefault();
         fieldName = $(this).attr('data-field');
         var currentVal = parseInt($('input[name='+fieldName+']').val());
-        if (!isNaN(currentVal) && currentVal > 0)
+        if (!isNaN(currentVal) && currentVal > 1)
         {
             $('input[name='+fieldName+']').val(currentVal - 1);
         }
         else
         {
-            $('input[name='+fieldName+']').val(0);
+            $('input[name='+fieldName+']').val(1);
         }
     });
 });
@@ -77,7 +77,7 @@ function login()
     {
         // send to server for verification!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         // get something back from server to say password was wrong
-        if(false)
+        if(false) // something other than false
         {
             on_bad_bid();
         }
@@ -95,17 +95,16 @@ function make_bid()
 
     var iz_number = bid_form["iz-number"].value;
     var root = bid_form["root"].value;
-    var num_roots = bid_form["num-roots"].value;
     var bid_amt = bid_form["bid-amt"].value;
 
-    if(bid_amt > 100 || bid_amt < 1 || num_roots < 1 || iz_number == "" || iz_number.length < 6)
+    if(bid_amt > 100 || bid_amt < 0 || iz_number == "" || iz_number.length < 6)
     {
         on_bad_bid();
     }
     else
     {
-        on_good_bid();
         // send to server!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        on_good_bid();
     }
 }
 
@@ -122,7 +121,7 @@ function show_bids()
     else
     {
         // retrieve info from server for display, somehow display
-    // display all bids for a particular IZN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // display all bids for a particular IZN!!!!!!!!!!!!!!!!!!!!!!!!!!
         document.getElementById("dispBala").style.display = "initial";
         document.getElementById("dispBids").style.display = "initial";
     }
@@ -134,16 +133,6 @@ function reset_view()
     // somehow actually clear the data
     document.getElementById("dispBala").style.display = "none";
     document.getElementById("dispBids").style.display = "none";
-}
-
-function change_bid()
-{
-    // change bid!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-}
-
-function delete_bid()
-{
-    // delete bid!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
 
 function update_roots()

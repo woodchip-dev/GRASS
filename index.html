@@ -38,9 +38,13 @@
                 <div class="large-12 medium-12 cell">
                   <div style="text-align: center;">
                       <h4>Create Bid</h4>
+                      <small class="error">One bid per root only.</small>
+                      <br />
+                      <small class="error">Update bid for root by re-bidding for it.</small>
                   </div>
+                  <br />
                   <label>Input IZ Number
-                    <input type="text" placeholder="IZ Number" required pattern="[0-9]{6}" maxlength="6" name="iz-number" value="" style="margin-bottom: 0.05rem;"/>
+                    <input type="text" placeholder="IZ Number" required pattern="[0-9]{6}" maxlength="6" name="iz-number" style="margin-bottom: 0.05rem;"/>
                     <small class="error">IZ number must be 6 digit.</small>
                   </label>
                 </div>
@@ -60,30 +64,7 @@
               <br />
               <div class="grid-x grid-padding-x">
                 <div class="large-12 medium-12 cell">
-                  <label>Input Desired Root Amount
-
-                    <!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
-                    <div class="input-group plus-minus-input">
-                      <div class="input-group-button">
-                        <button type="button" class="button square" data-quantity="minus" data-field="num-roots">
-                          <b class="fa fa-minus" style="text-align: center;"></b>
-                        </button>
-                      </div>
-                      <input class="input-group-field" type="number" name="num-roots" value="0" min="1" max="100" required>
-                      <div class="input-group-button">
-                        <button type="button" class="button square" data-quantity="plus" data-field="num-roots">
-                          <b class="fa fa-plus"></b>
-                        </button>
-                      </div>
-                    </div>
-
-                  </label>
-                </div>
-              </div>
-              <br />
-              <div class="grid-x grid-padding-x">
-                <div class="large-12 medium-12 cell">
-                  <label>Input Bid Per Root Amount
+                  <label>Input Bid Amount
 
                     <!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
                     <div class="input-group plus-minus-input">
@@ -92,7 +73,7 @@
                           <b class="fa fa-minus"></b>
                         </button>
                       </div>
-                      <input class="input-group-field" type="number" name="bid-amt" value="0" min="1" max="100" required>
+                      <input class="input-group-field" type="number" name="bid-amt" value="1" min="1" max="100" required>
                       <div class="input-group-button">
                         <button type="button" class="button square" data-quantity="plus" data-field="bid-amt">
                           <b class="fa fa-plus"></b>
@@ -180,32 +161,11 @@
               <hr class="thin" />
               <div class="grid-x grid-padding-x">
                 <div class="input-group plus-minus-input" style="margin-bottom: 0;">
-                  <div class="large-3 medium-3 small-3 cell gridit" id="bid-data">
-                      <p>[root name]</p>
+                  <div class="large-6 medium-6 small-6 cell gridit" id="bid-data">
+                    <p>[root name]</p>
                   </div>
-                  <div class="large-3 medium-3 small-3 cell gridit" id="bid-data">
-                    <p>[root num]</p>
-                  </div>
-                  <div class="large-3 medium-3 small-3 cell gridit" id="bid-data">
+                  <div class="large-6 medium-6 small-6 cell gridit" id="bid-data">
                     <p>[bid amt]</p>
-                  </div>
-                  <div class="large-3 medium-3 small-3 cell gridit" id="bid-data">
-                    <div class="grid-x grid-padding-x">
-                      <div class="large-6 medium-6 small-6 cell">
-                        <div class="input-group-button" id="mod-button">
-                          <button type="button" class="button square" data-modification="change" data-field="modBid" onclick="change_bid()">
-                            <b class="fa fa-wrench"></b>
-                          </button>
-                        </div>
-                      </div>
-                      <div class="large-6 medium-6 small-6 cell">
-                        <div class="input-group-button" id="mod-button">
-                          <button type="button" class="button square" data-modification="delete" data-field="modBid" onclick="delete_bid()">
-                            <b class="fa fa-times"></b>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -230,17 +190,24 @@
             <div class="input-group iz-input">
               <input type="password" placeholder="Password" required pattern="[a-zA-Z0-9]" maxlength="32" name="word" value="" style="margin-bottom: 0.05rem;"/>
               <div class="modButton">
-                <button class="input-group-button small button" name="disp-bids" type="button" id="modFont" onclick="login()">LOGIN</button>
+                <button class="input-group-button small button" name="login" type="button" id="modFont" onclick="login()">LOGIN</button>
+              </div>
+              <div class="modButton">
+                <button type="button" class="input-group-button button square" data-quantity="exit" data-field="login" onclick="off_attempt_login()" style="height: 2.5rem;">
+                  <b class="fa fa-times" style="text-align: center;"></b>
+                </button>
               </div>
             </div>
             <div style="margin-top: -1rem;">
-              <small class="error">Admin interface is for view by Prime Minister only. <b class="go-back" onclick="off_attempt_login()">Back.</b></small>
+              <small class="error">Admin interface is for view by Prime Minister only.</small>
             </div>
           </label>
         </form>
 
       </div>
     </div>
+
+    
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
