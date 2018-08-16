@@ -6,7 +6,8 @@ Created this for CS601. You can read about the assignment premise in `Root_Veget
 For the front-end, [Foundation by Zurb](https://foundation.zurb.com/) and the free version of [Font Awesome](https://fontawesome.com/) are used (the latest versions of both can simply be downloaded from their websites).
 
 The back-end things installable with pip are listed in `requirements.txt` (may not be complete) and are as follows:
-```Flask==0.12.2
+```
+Flask==0.12.2
 flask-sockets
 gunicorn==19.4.5
 PyMongo>=3.6.1
