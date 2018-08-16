@@ -1,0 +1,260 @@
+.plus-minus-input {
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+  
+.iz-input {
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+  
+.plus-minus-input .input-group-field {
+    text-align: center;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    height: 2.5rem;
+}
+  
+.iz-input .input-group-field {
+    height: 2.5rem;
+}
+
+.plus-minus-input .input-group-field::-webkit-inner-spin-button,
+.plus-minus-input .input-group-field ::-webkit-outer-spin-button {
+-webkit-appearance: none;
+        appearance: none;
+}
+
+.iz-input .input-group-field::-webkit-inner-spin-button,
+.iz-input .input-group-field ::-webkit-outer-spin-button {
+-webkit-appearance: none;
+        appearance: none;
+}
+
+.plus-minus-input .input-group-button .square {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.input-group-button .square .fa-plus:before {
+    margin-left: -0.20rem;
+}
+
+.input-group-button .square .fa-minus:before {
+    margin-left: -0.20rem;
+}
+
+.input-group-button .square .fa-wrench:before {
+    margin-left: -0.3rem;
+}
+
+.input-group-button .square .fa-times:before {
+    margin-left: -0.20rem;
+}
+
+.input-group-button .square .fa-key:before {
+    margin-left: -0.25rem;
+}
+
+.input-group-button .square .fa-lock:before {
+    margin-left: -0.20rem;
+}
+
+.loginout {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+li {
+    display: table;
+    margin: 0 auto;
+}
+
+ul2 {
+    list-style-type: none;
+    margin: 0;
+}
+
+li2 {
+    display: inline-block;
+}
+
+.modButton {
+    margin-left: 0.5rem;
+    margin-top: 0;
+}
+
+#modFont {
+    height: 2.5rem;
+    font-size: 0.9rem;
+}
+
+span {
+    font-size: 22px;
+}
+
+#bad-bid {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.15);
+    z-index: 3;
+    cursor: pointer;
+}
+
+#good-bid {
+    text-align: center;
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.15);
+    z-index: 2;
+    cursor: pointer;
+}
+
+#i-am-root {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #d7ecfad5;
+    color: #0a0a0a;
+    z-index: 2;
+    cursor: default;
+}
+
+#change-it {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(22, 185, 0, 0.9);
+    z-index: 2;
+    cursor: default;
+}
+
+#textb {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 12rem;
+    font-weight: bold;
+    color: red;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
+
+#textg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 12rem;
+    font-weight: bold;
+    color: green;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.bid-data {
+    width: 50%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#bid-data2 {
+    width: 33.33%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.gridit {
+    position: relative;
+    height: 3rem;
+    border-radius: 0;
+}
+
+.gridit p {
+    margin-top: 0.75rem;
+}
+
+.thin {
+    margin: 0 0 0rem 0;
+}
+
+.go-back {
+    color: red;
+    cursor: pointer;
+}
+
+.go-back:hover {
+    color: yellow;
+    cursor: pointer;
+}
+
+#dispBids {
+    display: none;
+}
+
+.no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+#hide
+{
+    font-size: 1.25rem;
+    padding-bottom: 1.5rem;
+}
+
+.cell2
+{
+    min-height: 0px;
+    min-width: 0px;
+    width: 100%;
+}
+
+#take_bid
+{
+    text-align: center;
+}
+
+#del_bid
+{
+    text-align: center;
+}

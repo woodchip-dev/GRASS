@@ -1,0 +1,94 @@
+<!doctype html>
+<html class="no-js no-select" lang="en" dir="ltr" onload="show_root_bids()">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - GRASS</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.png')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome-free-5.2.0-web/css/all.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome-free-5.2.0-web/css/solid.css') }}">
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+          <div class="large-12 cell">
+            <div class="input-group plus-minus-input" style="margin-bottom: 0;">
+              <div class="input-group-button loginout">
+                <button type="button" class="button square" data-quantity="exit" data-field="logout" onclick="attempt_logout()">
+                  <b class="fas fa-lock" style="text-align: center;"></b>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell" style="text-align: center;">
+          <h1>Admin - Glorious Root Allocation Synergetic System</h1>
+        </div>
+      </div>
+      <hr style="margin-top: 0;" />
+      <div class="grid-x grid-padding-x" data-equalizer="3col">
+        <div class="large-12 medium-12 small-12 cell">
+          <div class="primary callout" data-equalizer-watch="3col">
+            <div style="text-align: center;">
+                <h4>Root Management</h4>
+            </div>
+            <form data-abide name="updater" id="form_updt">
+              <div class="grid-x grid-padding-x">
+                <div class="large-6 medium-6 small-6 cell columns">
+                  <label><h6>Add Root</h6>
+                    <input type="text" placeholder="Root Name" pattern="(\b([A-Z]{1}([a-z]*)\b) ?)+" name="add-root" value="" style="margin-bottom: 0.05rem;"/>
+                    <small class="error">First letter of each word must be capitalized.</small>
+                  </label>
+                </div>
+                <div class="large-6 medium-6 small-6 cell columns">
+                  <label><h6>Delete Root</h6></label>
+                  <select type="string" placeholder="Delete Root" name="del-root" id="rooteda"></select>
+                </div>
+              </div>
+              <div class="grid-x grid-padding-x">
+                <div class="large-12 medium-12 small-12 cell">
+                  <div class="button-group">
+                    <b  style="margin: 0 auto; margin-bottom: -1rem;">
+                      <button class="small button" name="update-roots" type="button" onclick="update_roots()">UPDATE</button>
+                    </b>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="large-12 medium-12 small-12 cell">
+          <div class="primary callout" data-equalizer-watch="3col">
+            <div class="grid-x grid-padding-x">
+                <div class="large-12 medium-12 cell">
+                    <div style="text-align: center;">
+                        <h4>All Bid History</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-x grid-padding-x">
+              <div class="large-12 medium-12 small-12 cell">
+                <hr class="thin" />
+                <div class="cell2 gridit bid-data" style="margin-bottom: 0; margin-top: 1rem; height: 21rem; overflow-y: auto; overflow-x: hidden;" id="irbdata"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="bad-bid" onclick="off_bad_bid()">
+      <div id="textb">VERBOTEN</div>
+    </div>
+    <div id="good-bid" onclick="off_good_bid()">
+      <div id="textg">UPDATE SUCCESS</div>
+    </div>
+    <script src="{{ url_for('static', filename='js/vendor/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/vendor/what-input.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/vendor/foundation.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>

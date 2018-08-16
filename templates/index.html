@@ -1,0 +1,175 @@
+<!doctype html>
+<html class="no-js no-select" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRASS</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.png')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/foundation.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome-free-5.2.0-web/css/all.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome-free-5.2.0-web/css/solid.css') }}">
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell">
+          <div class="input-group plus-minus-input" style="margin-bottom: 0;">
+            <div class="input-group-button loginout">
+              <button type="button" class="button square" data-quantity="enter" data-field="login" onclick="on_attempt_login()">
+                <b class="fas fa-key" style="text-align: center;"></b>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid-x grid-padding-x">
+        <div class="large-12 cell" style="text-align: center;">
+          <h1>Glorious Root Allocation Synergetic System</h1>
+        </div>
+      </div>
+      <hr style="margin-top: 0;" />
+      <div class="grid-x grid-padding-x" data-equalizer="3col">
+        <div class="large-4 medium-4 cell">
+          <div class="primary callout"data-equalizer-watch="3col">
+            <form data-abide name="create_bid" id="form_bid">
+              <div class="grid-x grid-padding-x">
+                <div class="large-12 medium-12 cell">
+                  <div style="text-align: center;">
+                      <h4>Create Bid</h4>
+                      <small class="error">One bid per root only.</small>
+                      <br />
+                      <small class="error">Update bid for root by re-bidding for it.</small>
+                  </div>
+                  <br />
+                  <label>Input IZ Number
+                    <input type="text" placeholder="IZ Number" required pattern="[0-9]{6}" maxlength="6" name="iz-number" style="margin-bottom: 0.05rem;"/>
+                    <small class="error">IZ number must be 6 digit.</small>
+                  </label>
+                </div>
+              </div>
+              <br />
+              <div class="grid-x grid-padding-x">
+                <div class="large-12 medium-12 cell">
+                  <label>Select Root</label>
+                  <select type="string" name="root" id="rooted"></select>
+                </div>
+              </div>
+              <br />
+              <div class="grid-x grid-padding-x">
+                <div class="large-12 medium-12 cell">
+                  <label>Input Bid Amount
+                    <div class="input-group plus-minus-input">
+                      <div class="input-group-button">
+                        <button type="button" class="button square" data-quantity="minus" data-field="bid-amt">
+                          <b class="fas fa-minus"></b>
+                        </button>
+                      </div>
+                      <input class="input-group-field" type="number" name="bid-amt" value="1" min="1" max="100" required>
+                      <div class="input-group-button">
+                        <button type="button" class="button square" data-quantity="plus" data-field="bid-amt">
+                          <b class="fas fa-plus"></b>
+                        </button>
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <br />
+              <div class="grid-x grid-padding-x">
+                <div class="large-12 medium-12 cell">
+                  <div class="button-group">
+                    <b  style="margin: 0 auto; margin-bottom: -1rem;">
+                      <button class="small button" name="createBid" type="button" onclick="make_bid()">BID NOW</button>
+                    </b>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="large-8 medium-8 cell">
+          <div class="primary callout" data-equalizer-watch="3col">
+            <div class="grid-x grid-padding-x">
+              <div class="large-12 medium-12 small-12 cell">
+                <div class="input-group" style="display: flex; justify-content: center;">
+                  <h4>Bid History</h4>
+                  <div class="input-group-button" style="margin-left: 0.5rem;">
+                    <button class="small button" name="resetView" type="reset" id="modFont" onclick="reset_view()">
+                      <b class="fas fa-redo"></b>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="thin" />
+            <div id="dispBids">
+              <div class="grid-x grid-padding-x" style="margin: 0 auto; margin-top: 0.5rem; margin-bottom: 0.5rem;">
+                <div class="large-6 medium-6 small-6 cell">
+                  <div style="text-align: center;">
+                    <span>
+                      IZN: 
+                    </span>
+                    <span id="izn" style="font-weight: 700;"></span>
+                  </div>
+                </div>
+                <div class="large-6 medium-6 small-6 cell">
+                  <div style="text-align: center;">
+                    <span>
+                      Balance: 
+                    </span>
+                    <span id="iz-amt" style="font-weight: 700;"></span>
+                    <span>
+                       izhk
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <hr class="thin" />
+              <br />
+              <div class="grid-x grid-padding-x">
+                <div class="input-group" style="margin-bottom: 0; height: 23rem; overflow-y: auto;">
+                  <div class="large-6 medium-6 small-6 cell gridit bid-data" id="rdat"></div>
+                  <div class="large-6 medium-6 small-6 cell gridit bid-data" id="bdat"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="bad-bid" onclick="off_bad_bid()">
+      <div class="no-select" id="textb">VERBOTEN</div>
+    </div>
+    <div id="good-bid" onclick="off_good_bid()">
+      <div class="no-select" id="textg">BID SUCCESS</div>
+    </div>
+    <div id="i-am-root">
+      <div id="textb" class="callout primary" style="min-width: 25rem;">
+        <form data-abide name="pass" id="form_auth">
+          <label>Input Password
+            <div class="input-group iz-input">
+              <input id="pw" type="password" placeholder="Password" required pattern="[a-zA-Z0-9]" maxlength="32" name="word" style="margin-bottom: 0.05rem;"/>
+              <div class="modButton">
+                <button class="input-group-button small button" name="login" type="submit" id="modFont" onclick="authPM()">LOGIN</button>
+              </div>
+              <div class="modButton">
+                <button type="button" class="input-group-button button square" data-quantity="exit" data-field="login" onclick="off_attempt_login()" style="height: 2.5rem;">
+                  <b class="fas fa-times" style="text-align: center;"></b>
+                </button>
+              </div>
+            </div>
+            <div style="margin-top: -1rem;">
+              <small class="error">Admin interface is for view by Prime Minister only.</small>
+            </div>
+          </label>
+        </form>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/vendor/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/vendor/what-input.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/vendor/foundation.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>
